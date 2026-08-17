@@ -1,178 +1,75 @@
-\# 💧 Hydration Reminder
+# 💧 Hydration Reminder
 
+A simple Windows hydration reminder built with Python. It sends a desktop notification and plays a custom sound at scheduled intervals.
 
+## ✨ Features
 
-A simple Windows-based hydration reminder built with Python.  
+- 🔔 Desktop notifications
+- 🔊 Custom reminder sound
+- 💧 Custom notification icon
+- ⏰ Automatic scheduling with Windows Task Scheduler
+- 🖥️ Runs without keeping VS Code or a terminal open
 
-It sends a desktop notification and plays a custom sound at scheduled intervals.
+## 🛠️ Built With
 
+- Python
+- Plyer
+- Winsound
+- Windows Task Scheduler
 
-
-\## ✨ Features
-
-
-
-\- 🔔 Desktop hydration notifications
-
-\- 🔊 Custom reminder sound
-
-\- 💧 Custom notification icon
-
-\- ⏰ Automatic scheduling with Windows Task Scheduler
-
-\- 🖥️ Runs without keeping VS Code or a terminal open
-
-
-
-\## 🛠️ Built With
-
-
-
-\- Python
-
-\- \[Plyer](https://pypi.org/project/plyer/)
-
-\- `winsound`
-
-\- Windows Task Scheduler
-
-
-
-\## 📁 Project Structure
-
-
+## 📁 Project Structure
 
 ```text
-
-Hydration\_Notification/
-
-│
-
+Hydration_Notification/
 ├── Main.py
-
 ├── requirements.txt
-
 ├── water drop.ico
-
 ├── water drop.png
-
 └── water.wav
-
 ```
 
+## ⚙️ Installation
 
-
-\## ⚙️ Installation
-
-
-
-\### 1. Clone or download the repository
-
-
+1. Download and extract the project.
+2. Open PowerShell in the project folder.
+3. Install the dependency:
 
 ```bash
-
-git clone <repository-url>
-
-cd Hydration\_Notification
-
-```
-
-
-
-\### 2. Install the required package
-
-
-
-```bash
-
 pip install -r requirements.txt
-
 ```
 
-
-
-\### 3. Run the program
-
-
+4. Test the program:
 
 ```bash
-
 python Main.py
-
 ```
 
+## ⏰ Automatic Reminders
 
+The script sends one notification and exits.  
+For recurring reminders, use **Windows Task Scheduler**.
 
-You should receive a notification and hear the reminder sound.
+### Quick Setup
 
+1. Open **Task Scheduler** → **Create Task**.
+2. Name it `Hydration Reminder`.
+3. In **Triggers**, choose your desired schedule and enable **Repeat task every**.
+4. In **Actions → New**, choose **Start a program**.
+5. Select your `pythonw.exe`.
+6. In **Add arguments**, enter the path to `Main.py`.
+7. In **Start in**, enter the project folder.
+8. Click **OK** and use **Run** to test it.
 
+> Use `pythonw.exe` instead of `python.exe` to prevent a terminal window from opening.
 
-\## ⏰ Automatic Reminders
+## 📝 Notes
 
+- Windows only.
+- Keep `Main.py`, `water drop.ico`, and `water.wav` in the same folder.
+- The reminder interval is controlled by Task Scheduler.
 
+## 👨‍💻 Author
 
-The Python script sends \*\*one notification and exits\*\*.
-
-
-
-For recurring reminders, Windows \*\*Task Scheduler\*\* is used to run `Main.py` at a chosen interval.
-
-
-
-Example:
-
-
-
-```text
-
-Task Scheduler
-
-&#x20;     ↓
-
-Every 2 hours
-
-&#x20;     ↓
-
-Main.py
-
-&#x20;     ↓
-
-🔔 Notification + 🔊 Sound
-
-&#x20;     ↓
-
-Program exits
-
-```
-
-
-
-Using Task Scheduler means the Python program does not need to continuously run in the background.
-
-
-
-\## 📝 Notes
-
-
-
-\- Designed for \*\*Windows\*\*.
-
-\- `winsound` is included with Python and does not need to be installed separately.
-
-\- Keep `Main.py`, `water drop.ico`, and `water.wav` in the same folder.
-
-\- The reminder interval can be changed through Windows Task Scheduler.
-
-
-
-\## 👨‍💻 Author
-
-
-
-\*\*Hemanth\*\*
-
-
+**Hemanth**
 
 Built with Python 🐍
-
