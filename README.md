@@ -7,7 +7,7 @@ A simple Windows hydration reminder built with Python. It sends a desktop notifi
 - 🔔 Desktop notifications
 - 🔊 Custom reminder sound
 - 💧 Custom notification icon
-- ⏰ Automatic scheduling with Windows Task Scheduler
+- ⏰ Automatic reminders using Windows Task Scheduler
 - 🖥️ Runs without keeping VS Code or a terminal open
 
 ## 🛠️ Built With
@@ -32,7 +32,7 @@ Hydration_Notification/
 
 1. Download and extract the project.
 2. Open PowerShell in the project folder.
-3. Install the dependency:
+3. Install the required package:
 
 ```bash
 pip install -r requirements.txt
@@ -44,32 +44,42 @@ pip install -r requirements.txt
 python Main.py
 ```
 
+The notification should appear and the reminder sound should play.
+
 ## ⏰ Automatic Reminders
 
-The script sends one notification and exits.  
-For recurring reminders, use **Windows Task Scheduler**.
+`Main.py` sends **one notification and exits**.
 
-### Quick Setup
+Windows **Task Scheduler** is used to automatically run the script.
+
+### Task Scheduler Setup
 
 1. Open **Task Scheduler** → **Create Task**.
 2. Name it `Hydration Reminder`.
-3. In **Triggers**, choose your desired schedule and enable **Repeat task every**.
-4. In **Actions → New**, choose **Start a program**.
-5. Select your `pythonw.exe`.
-6. In **Add arguments**, enter the path to `Main.py`.
-7. In **Start in**, enter the project folder.
-8. Click **OK** and use **Run** to test it.
+3. Under **Triggers**, choose **At startup**.
+4. Enable **Repeat task every: 2 hours** and set the duration to **Indefinitely**.
+5. Under **Actions → New**, select **Start a program**.
+6. Select your `pythonw.exe`.
+7. In **Add arguments**, enter the path to `Main.py`.
+8. In **Start in**, enter the project folder.
+9. Under **Conditions**, disable **Start the task only if the computer is on AC power** if you want it to work on battery.
+10. Save the task and use **Run** to test it.
 
 > Use `pythonw.exe` instead of `python.exe` to prevent a terminal window from opening.
 
+Once configured, Windows can run the reminder automatically without VS Code or a terminal running in the background.
+
 ## 📝 Notes
 
-- Windows only.
+- Designed for **Windows**.
+- `winsound` is included with Python.
 - Keep `Main.py`, `water drop.ico`, and `water.wav` in the same folder.
-- The reminder interval is controlled by Task Scheduler.
+- The reminder interval is controlled by **Task Scheduler**.
 
 ## 👨‍💻 Author
 
 **Hemanth**
 
 Built with Python 🐍
+
+💧 Stay hydrated!
